@@ -138,61 +138,85 @@ public class Janela extends javax.swing.JDialog {
 
         //DECIMAL -> BINÁRIO
         if (boxEntrada.getSelectedIndex() == 1 && boxSaida.getSelectedIndex() == 0) {
-                String entrada = textEntrada.getText();
-                int valorEntrada = Integer.valueOf(entrada);
-                System.out.println( valorEntrada );
-                int q;  
-                String saida = "";
-                do{
-                   q = valorEntrada / 2;
-                   int r = valorEntrada % 2;      
-                   saida = r + saida;            
-                   valorEntrada = q;
-                   System.out.println(q);
-                }while(q >= 2);
-                saida = q + saida;
-                System.out.println(saida);
-                textSaida.setText(saida);
+            String entrada = textEntrada.getText();
+            int valorEntrada = Integer.valueOf(entrada);
+            System.out.println(valorEntrada);
+            int q;
+            String saida = "";
+            do {
+                q = valorEntrada / 2;
+                int r = valorEntrada % 2;
+                saida = r + saida;
+                valorEntrada = q;
+                System.out.println(q);
+            } while (q >= 2);
+            saida = q + saida;
+            System.out.println(saida);
+            textSaida.setText(saida);
         }
 
         //DECIMAL -> HEXADECIMAL 
         if (boxEntrada.getSelectedIndex() == 1 && boxSaida.getSelectedIndex() == 2) {
             String entrada = textEntrada.getText();
-                int valorEntrada = Integer.valueOf(entrada);
-                System.out.println( valorEntrada );
-                int q;  
-                String saida = "";
-                do{
-                   q = valorEntrada / 16;
-                   int r = valorEntrada % 16;
-                   switch (r){
-                       case 10:
+            int valorEntrada = Integer.valueOf(entrada);
+            System.out.println(valorEntrada);
+            int q;
+            String saida = "";
+            do {
+                q = valorEntrada / 16;
+                int r = valorEntrada % 16;
+                switch (r) {
+                    case 10:
                         saida = "A" + saida;
                         break;
-                       case 11:
+                    case 11:
                         saida = "B" + saida;
                         break;
-                       case 12:
+                    case 12:
                         saida = "C" + saida;
                         break;
-                       case 13:
+                    case 13:
                         saida = "D" + saida;
                         break;
-                       case 14:
+                    case 14:
                         saida = "E" + saida;
                         break;
-                       case 15:
+                    case 15:
                         saida = "F" + saida;
                         break;
-                       default:
-                        saida = r + saida; 
-                   }          
-                   valorEntrada = q;
-                   System.out.println(q);
-                }while(q >= 16);
-                saida = q + saida;
-                System.out.println(saida);
-                textSaida.setText(saida);
+                    default:
+                        saida = r + saida;
+                }
+
+                //System.out.println(q);
+            } while (q >= 16);
+
+            switch (q) {
+                case 10:
+                    saida = "A" + saida;
+                    break;
+                case 11:
+                    saida = "B" + saida;
+                    break;
+                case 12:
+                    saida = "C" + saida;
+                    break;
+                case 13:
+                    saida = "D" + saida;
+                    break;
+                case 14:
+                    saida = "E" + saida;
+                    break;
+                case 15:
+                    saida = "F" + saida;
+                    break;
+                default:
+                    saida = q + saida;
+            }
+
+
+            //System.out.println(saida);
+            textSaida.setText(saida);
         }
 
         //HEXADECIMAL -> BINÁRIO
