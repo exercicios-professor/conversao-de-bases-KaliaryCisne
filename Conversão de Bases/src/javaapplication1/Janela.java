@@ -188,7 +188,6 @@ public class Janela extends javax.swing.JDialog {
                         saida = r + saida;
                 }
 
-                //System.out.println(q);
             } while (q >= 16);
 
             switch (q) {
@@ -213,9 +212,7 @@ public class Janela extends javax.swing.JDialog {
                 default:
                     saida = q + saida;
             }
-
-
-            //System.out.println(saida);
+            
             textSaida.setText(saida);
         }
 
