@@ -128,19 +128,36 @@ public class Janela extends javax.swing.JDialog {
 
         //BINÁRIO -> DECIMAL 
         if (boxEntrada.getSelectedIndex() == 0 && boxSaida.getSelectedIndex() == 1) {
-
+            
+            String entrada = textEntrada.getText();
+            int tam = entrada.length();
+            int valorEntrada = Integer.valueOf(entrada);
+            int q, r;
+            String saida = "";
+            int cont = 0;
+            double valorTemp = 0;
+            
+            do{
+               r = valorEntrada % 10;
+               valorEntrada = valorEntrada / 10;
+               valorTemp = (int) (valorTemp + ( r * Math.pow(2, cont)));
+               cont =cont + 1;
+               
+            }while(cont <= tam);
+           saida = String.valueOf(valorTemp);
+           textSaida.setText(saida);
         }
 
         //BINÁRIO -> HEXADECIMAL 
         if (boxEntrada.getSelectedIndex() == 0 && boxSaida.getSelectedIndex() == 2) {
-
+            
         }
 
         //DECIMAL -> BINÁRIO
         if (boxEntrada.getSelectedIndex() == 1 && boxSaida.getSelectedIndex() == 0) {
             String entrada = textEntrada.getText();
             int valorEntrada = Integer.valueOf(entrada);
-            System.out.println(valorEntrada);
+            //System.out.println(valorEntrada);
             int q;
             String saida = "";
             do {
