@@ -128,7 +128,7 @@ public class Janela extends javax.swing.JDialog {
 
         //BINÁRIO -> DECIMAL 
         if (boxEntrada.getSelectedIndex() == 0 && boxSaida.getSelectedIndex() == 1) {
-            
+
             String entrada = textEntrada.getText();
             int tam = entrada.length();
             int valorEntrada = Integer.valueOf(entrada);
@@ -136,28 +136,34 @@ public class Janela extends javax.swing.JDialog {
             String saida = "";
             int cont = 0;
             double valorTemp = 0;
-            
-            do{
-               r = valorEntrada % 10;
-               valorEntrada = valorEntrada / 10;
-               valorTemp = (int) (valorTemp + ( r * Math.pow(2, cont)));
-               cont =cont + 1;
-               
-            }while(cont <= tam);
-           saida = String.valueOf(valorTemp);
-           textSaida.setText(saida);
+
+            do {
+                r = valorEntrada % 10;
+                valorEntrada = valorEntrada / 10;
+                valorTemp = valorTemp + (r * Math.pow(2, cont));
+                cont = cont + 1;
+
+            } while (cont <= tam);
+            saida = String.valueOf(valorTemp);
+            textSaida.setText(saida);
+
         }
 
         //BINÁRIO -> HEXADECIMAL 
         if (boxEntrada.getSelectedIndex() == 0 && boxSaida.getSelectedIndex() == 2) {
-            
+            String entrada = textEntrada.getText();
+            int valorEntrada = Integer.valueOf(entrada);
+            int tam = entrada.length();
+            int qtd = tam / 4;
+            int valorTemp = 0;
+            String saida = "";
+
         }
 
         //DECIMAL -> BINÁRIO
         if (boxEntrada.getSelectedIndex() == 1 && boxSaida.getSelectedIndex() == 0) {
             String entrada = textEntrada.getText();
             int valorEntrada = Integer.valueOf(entrada);
-            //System.out.println(valorEntrada);
             int q;
             String saida = "";
             do {
@@ -175,13 +181,14 @@ public class Janela extends javax.swing.JDialog {
         //DECIMAL -> HEXADECIMAL 
         if (boxEntrada.getSelectedIndex() == 1 && boxSaida.getSelectedIndex() == 2) {
             String entrada = textEntrada.getText();
-            int valorEntrada = Integer.valueOf(entrada);
+            int valorEntrada = Integer.parseInt(entrada);
             System.out.println(valorEntrada);
             int q;
             String saida = "";
+            int r = valorEntrada;
             do {
                 q = valorEntrada / 16;
-                int r = valorEntrada % 16;
+                r = valorEntrada % 16;
                 switch (r) {
                     case 10:
                         saida = "A" + saida;
@@ -204,42 +211,50 @@ public class Janela extends javax.swing.JDialog {
                     default:
                         saida = r + saida;
                 }
-
-            } while (q >= 16);
-
-            switch (q) {
-                case 10:
-                    saida = "A" + saida;
-                    break;
-                case 11:
-                    saida = "B" + saida;
-                    break;
-                case 12:
-                    saida = "C" + saida;
-                    break;
-                case 13:
-                    saida = "D" + saida;
-                    break;
-                case 14:
-                    saida = "E" + saida;
-                    break;
-                case 15:
-                    saida = "F" + saida;
-                    break;
-                default:
-                    saida = q + saida;
-            }
+                
+                valorEntrada = q;
+            }while (q >= 16);
             
-            textSaida.setText(saida);
+        switch (q) {
+            case 0:
+                saida = "" + saida;
+                break;
+            case 10:        
+                saida = "A" + saida;
+                break;
+            case 11:
+                saida = "B" + saida;
+                break;
+            case 12:
+                saida = "C" + saida;
+                break;
+            case 13:
+                saida = "D" + saida;
+                break;
+            case 14:
+                saida = "E" + saida;
+                break;
+            case 15:
+                saida = "F" + saida;
+                break;
+            default:
+                saida = q + saida;
         }
+        textSaida.setText(saida);
+    }
 
-        //HEXADECIMAL -> BINÁRIO
-        if (boxEntrada.getSelectedIndex() == 2 && boxSaida.getSelectedIndex() == 0) {
+    //HEXADECIMAL -> BINÁRIO
+    if (boxEntrada.getSelectedIndex () 
+    
+
+    == 2 && boxSaida.getSelectedIndex() == 0) {
 
         }
 
         //HEXADECIMAL -> DECIMAL
-        if (boxEntrada.getSelectedIndex() == 2 && boxSaida.getSelectedIndex() == 1) {
+        if (boxEntrada.getSelectedIndex () 
+    
+== 2 && boxSaida.getSelectedIndex() == 1) {
 
         }
     }//GEN-LAST:event_converterActionPerformed
@@ -247,7 +262,7 @@ public class Janela extends javax.swing.JDialog {
     /**
      * @param args the command line arguments
      */
-    public static void main(String args[]) {
+    public static void main(String[] args) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
         /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
@@ -258,16 +273,28 @@ public class Janela extends javax.swing.JDialog {
                 if ("Nimbus".equals(info.getName())) {
                     javax.swing.UIManager.setLookAndFeel(info.getClassName());
                     break;
-                }
+                
+
+}
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(Janela.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(Janela.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(Janela.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(Janela.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Janela.class
+.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        
+
+} catch (InstantiationException ex) {
+            java.util.logging.Logger.getLogger(Janela.class
+.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        
+
+} catch (IllegalAccessException ex) {
+            java.util.logging.Logger.getLogger(Janela.class
+.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        
+
+} catch (javax.swing.UnsupportedLookAndFeelException ex) {
+            java.util.logging.Logger.getLogger(Janela.class
+.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
         //</editor-fold>
@@ -278,7 +305,7 @@ public class Janela extends javax.swing.JDialog {
                 Janela dialog = new Janela(new javax.swing.JFrame(), true);
                 dialog.addWindowListener(new java.awt.event.WindowAdapter() {
                     @Override
-                    public void windowClosing(java.awt.event.WindowEvent e) {
+        public void windowClosing(java.awt.event.WindowEvent e) {
                         System.exit(0);
                     }
                 });
